@@ -96,8 +96,8 @@ function db_error_out()
 
 	}
 	$backtrace = debug_backtrace();
-	$file = $backtrace[0]['file'];
-	$line = $backtrace[0]['line'];
+	$file = $backtrace[1]['file'];
+	$line = $backtrace[1]['line'];
 	$function = isset($backtrace[2]['function']) ? $backtrace[2]['function'] : NULL;
 	$args = isset($backtrace[2]['args']) ? $backtrace[2]['args'] : NULL;
 	if (!empty($args)) {

@@ -23,8 +23,8 @@ class posts extends Controller{
     }
     function view(){
         $post_id = $this->params[0];
-        $this->post = get_first("SELECT * FROM post NATURAL JOIN user WHERE post_id=('$post_id'");
+        $this->post = get_first("SELECT * FROM post NATURAL JOIN user WHERE post_id='$post_id'");
         $this->tags = get_all("SELECT * FROM post_tags NATURAL JOIN tag WHERE post_id='$post_id'");
     }
-    <?foreach ($tags as $tag):?><a href="tags/view/<?=$tag[‘tag_name’]?>"><span class="label label-info"><?=$tag['tag_name']?></span></a> <endforeach?>
+
 }
