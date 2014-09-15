@@ -27,9 +27,9 @@
                             <div class="col-xs-10 col-md-11">
                                 <div>
                                     <a href="http://www.jquery2dotnet.com/2013/10/google-style-login-page-desing-usign.html">
-                                        Google Style Login Page Design Using Bootstrap</a>
+                                        <?=$comment['comment_text']?></a>
                                     <div class="mic-info">
-                                        By: <a href="#">Bhaumik Patel</a> on 2 Aug 2013
+                                        By: <a href="#"><?=$comment['comment_author']?></a> <?=$comment['comment_date']?>
                                     </div>
                                 </div>
                                 <div class="comment-text">

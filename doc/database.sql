@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Loomise aeg: Sept 10, 2014 kell 04:29 PL
+-- Loomise aeg: Sept 15, 2014 kell 03:40 PL
 -- Serveri versioon: 5.6.16
 -- PHP versioon: 5.5.11
 
@@ -14,6 +14,31 @@ SET time_zone = "+00:00";
 --
 -- Andmebaas: `blog`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabeli struktuur tabelile `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `comment_text` text NOT NULL,
+  `comment_author` text NOT NULL,
+  `comment_date` date NOT NULL,
+  `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`comment_id`),
+  KEY `post_id` (`post_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Andmete tõmmistamine tabelile `comment`
+--
+
+INSERT INTO `comment` (`comment_text`, `comment_author`, `comment_date`, `comment_id`, `post_id`) VALUES
+('sadsa as dasdasd asda saf aw eera wfda fs afaw WDAW EGAW AFEARAW SGSRRA EA AW GAR AWR AW ATAEDAWEE AWF SET EARAWR AWRAWAW ARAWRAW EARAWE AARWA', 'KAIDO', '2014-09-15', 5, 4),
+('sadsa as dasdasd asda saf aw eera wfda fs afaw WDAW EGAW AFEARAW SGSRRA EA AW GAR AWR AW ATAEDAWEE AWF SET EARAWR AWRAWAW ARAWRAW EARAWE AARWA', 'KAIDO', '2014-09-15', 6, 4);
 
 -- --------------------------------------------------------
 
@@ -38,9 +63,7 @@ CREATE TABLE IF NOT EXISTS `post` (
 
 INSERT INTO `post` (`post_id`, `post_subject`, `post_text`, `post_created`, `user_id`) VALUES
 (3, 'sadasdasdasdada', 'asdasdasdasdasdasdasdasdasd', '2014-09-10 13:37:04', 1),
-(4, 'asdasdasdasdasda', 'asdasdasdasdasdasd', '2014-09-10 13:37:04', 1),
-(5, 'sadasdasdasdada', 'asdasdasdasdasdasdasdasdasd', '2014-09-10 13:37:14', 1),
-(6, 'asdasdasdasdasda', 'asdasdasdasdasdasd', '2014-09-10 13:37:14', 1);
+(4, 'asdasdasdasdasda', 'asdasdasdasdasdasd', '2014-09-10 13:37:04', 1);
 
 -- --------------------------------------------------------
 
@@ -114,6 +137,12 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `deleted`) VALUES
 --
 
 --
+-- Piirangud tabelile `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`);
+
+--
 -- Piirangud tabelile `post`
 --
 ALTER TABLE `post`
@@ -123,6 +152,6 @@ ALTER TABLE `post`
 -- Piirangud tabelile `post_tags`
 --
 ALTER TABLE `post_tags`
-  ADD CONSTRAINT `post_tags_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`tag_id`),
-  ADD CONSTRAINT `post_tags_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`);
+  ADD CONSTRAINT `post_tags_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`),
+  ADD CONSTRAINT `post_tags_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`tag_id`);
 SET FOREIGN_KEY_CHECKS=1;
