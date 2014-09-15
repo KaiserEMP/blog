@@ -8,7 +8,7 @@
 </div>
 </div>
 
-<?foreach ($comments as $comment):?> <div class="container"> <?endforeach?>
+<div class="container">
     <div class="row">
         <div class="panel panel-default widget">
             <div class="panel-heading">
@@ -20,7 +20,7 @@
             </div>
             <div class="panel-body">
                 <ul class="list-group">
-                    <li class="list-group-item">
+                    <?foreach ($comments as $comment):?> <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-2 col-md-1">
                                 <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> <?endforeach?>
 
 
                 </ul>
