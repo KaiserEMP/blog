@@ -52,7 +52,7 @@
 
 
                 </ul>
-                <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a>
+                <form method="post"> <input name="data[comment_text]"/> </form>
             </div>
         </div>
     </div>
