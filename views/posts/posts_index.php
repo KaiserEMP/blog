@@ -17,3 +17,10 @@
 
     </div>
 <? endforeach ?>
+
+<hr/>
+<form method="post">
+    <input name="data[post_text]" type="text"placeholder="pealkiri"/><br/><br/>
+    <textarea name="data[post_text]" id="" cols="30" rows="10" placeholder="Sisu"></textarea><br/>
+    <button class="btn  btn-default">Sisesta</button>
+</form>
