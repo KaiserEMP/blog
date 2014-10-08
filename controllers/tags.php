@@ -15,7 +15,7 @@ class tags extends Controller{
                                GROUP BY tag_id");
     }
     function view(){
-        $tag_id = $this->params[0];
+        $this->tag_name = $this->params[0];
         $this->posts = get_all("SELECT * FROM post_tags NATURAL JOIN post NATURAL JOIN tag WHERE tag_name='{$this->params[0]}'");
     }
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Loomise aeg: Sept 17, 2014 kell 04:37 PL
+-- Loomise aeg: Okt 08, 2014 kell 09:00 EL
 -- Serveri versioon: 5.6.16
 -- PHP versioon: 5.5.11
 
@@ -25,22 +25,25 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
   `comment_text` text NOT NULL,
   `comment_author` text NOT NULL,
-  `comment_date` datetime NOT NULL,
+  `comment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `post_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`comment_id`),
   KEY `post_id` (`post_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Andmete tõmmistamine tabelile `comment`
 --
 
 INSERT INTO `comment` (`comment_text`, `comment_author`, `comment_date`, `comment_id`, `post_id`) VALUES
-('sadsa as dasdasd asda saf aw eera wfda fs afaw WDAW EGAW AFEARAW SGSRRA EA AW GAR AWR AW ATAEDAWEE AWF SET EARAWR AWRAWAW ARAWRAW EARAWE AARWA', 'KAIDO', '2014-09-15 00:00:00', 5, 4),
-('sadsa as dasdasd asda saf aw eera wfda fs afaw WDAW EGAW AFEARAW SGSRRA EA AW GAR AWR AW ATAEDAWEE AWF SET EARAWR AWRAWAW ARAWRAW EARAWE AARWA', 'KAIDO', '2014-09-15 00:00:00', 6, 4),
+('sadsa as dasdasd asda saf aw eera wfda fs afaw WDAW EGAW AFEARAW SGSRRA EA AW GAR AWR AW ATAEDAWEE AWF SET EARAWR AWRAWAW ARAWRAW EARAWE AARWA', 'KAIDO', '2014-09-14 21:00:00', 5, 4),
+('sadsa as dasdasd asda saf aw eera wfda fs afaw WDAW EGAW AFEARAW SGSRRA EA AW GAR AWR AW ATAEDAWEE AWF SET EARAWR AWRAWAW ARAWRAW EARAWE AARWA', 'KAIDO', '2014-09-14 21:00:00', 6, 4),
 ('sadadasdasdasd', 'klaabu', '0000-00-00 00:00:00', 7, 3),
-('dfdafsfs', 'klaabu', '0000-00-00 00:00:00', 8, 3);
+('dfdafsfs', 'klaabu', '0000-00-00 00:00:00', 8, 3),
+('dfdafsfs', 'klaabu', '0000-00-00 00:00:00', 9, 3),
+('sdfasdasdasd', 'klaabu', '0000-00-00 00:00:00', 10, 4),
+('uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu', 'klaabu', '2014-10-08 06:53:18', 11, 4);
 
 -- --------------------------------------------------------
 
@@ -57,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `user_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`post_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Andmete tõmmistamine tabelile `post`
@@ -109,8 +112,8 @@ CREATE TABLE IF NOT EXISTS `tag` (
 INSERT INTO `tag` (`tag_id`, `tag_name`) VALUES
 (1, 'seeeontag'),
 (2, 'seeeontag2'),
-(3, 'seeeontag'),
-(4, 'seeeontag2');
+(3, 'seeeontag3'),
+(4, 'seeeontag4');
 
 -- --------------------------------------------------------
 
