@@ -28,10 +28,14 @@ class posts extends Controller{
       insert('comment', $data);
 }
     function view(){
-        $post_id = $this->params[0];
-        $this->post = get_first("SELECT * FROM post NATURAL JOIN user WHERE post_id='$post_id'");
-        $this->tags = get_all("SELECT * FROM post_tags NATURAL JOIN tag WHERE post_id='$post_id'");
-        $this->comments = get_all("SELECT * FROM comment");
+        $post_id=$this->params[0];
+        $this->post=get_first("SELECT*FROM post
+                                NATURAL JOIN user
+                                WHERE post_id='$post_id'");
+        $this->tags = get_all("SELECT*FROM post_tags NATURAL JOIN tag WHERE post_id='$post_id'");
+        $this->comments = get_all("SELECT*FROM comment
+                                    NATURAL JOIN post
+                                    WHERE post_id='$post_id'");
     }
 
 }
