@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Loomise aeg: Okt 08, 2014 kell 09:00 EL
+-- Loomise aeg: Okt 15, 2014 kell 12:54 PL
 -- Serveri versioon: 5.6.16
 -- PHP versioon: 5.5.11
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `post_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`comment_id`),
   KEY `post_id` (`post_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Andmete tõmmistamine tabelile `comment`
@@ -43,7 +43,9 @@ INSERT INTO `comment` (`comment_text`, `comment_author`, `comment_date`, `commen
 ('dfdafsfs', 'klaabu', '0000-00-00 00:00:00', 8, 3),
 ('dfdafsfs', 'klaabu', '0000-00-00 00:00:00', 9, 3),
 ('sdfasdasdasd', 'klaabu', '0000-00-00 00:00:00', 10, 4),
-('uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu', 'klaabu', '2014-10-08 06:53:18', 11, 4);
+('uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu', 'klaabu', '2014-10-08 06:53:18', 11, 4),
+('kas ikka', 'klaabu', '2014-10-13 10:10:37', 12, 4),
+('töötab', 'klaabu', '2014-10-13 10:10:46', 13, 3);
 
 -- --------------------------------------------------------
 
@@ -60,13 +62,14 @@ CREATE TABLE IF NOT EXISTS `post` (
   `user_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`post_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Andmete tõmmistamine tabelile `post`
 --
 
 INSERT INTO `post` (`post_id`, `post_subject`, `post_text`, `post_created`, `user_id`) VALUES
+(2, 'uus', 'uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuus', '2014-10-15 10:44:36', 1),
 (3, 'sadasdasdasdada', 'asdasdasdasdasdasdasdasdasd', '2014-09-10 13:37:04', 1),
 (4, 'asdasdasdasdasda', 'asdasdasdasdasdasd', '2014-09-10 13:37:04', 1);
 
@@ -90,6 +93,7 @@ CREATE TABLE IF NOT EXISTS `post_tags` (
 
 INSERT INTO `post_tags` (`post_id`, `tag_id`) VALUES
 (4, 1),
+(2, 2),
 (3, 4);
 
 -- --------------------------------------------------------
