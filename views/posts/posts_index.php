@@ -11,7 +11,7 @@
                     class="label">blog</span> <span class="label">personal</span></div>
         </div>
         <? foreach ($tags[$post['post_id']] as $tag): ?>
-            <a href="tags/view/<?= $tag['tag_name'] ?>">
+            <a href="tags/view/<?=$tag?>">
                 <span class="label" style="background-color: #5bc0de"><?= $tag ?></span>
             </a> <? endforeach ?>
 
